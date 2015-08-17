@@ -1,0 +1,217 @@
+Definição de tamanhos por px nunca mudam, importante usar %;
+/*A medida porcentagem varia de acordo com a propriedade na qual é usada. Se usada na propriedade font-size, é relativa ao tamanho de fonte do pai do elemento. 
+Se usada nas propriedades margin, padding e width, é relativa à largura do pai do elemento. 
+Por fim, se usada na propriedade height, é relativa à altura do pai do elemento.*/
+
+/*Em caso de duvidas sobre o prefixo, visite o caniuse.com*/
+
+Para o REM fazer sentido, ele deve ser definido na Tag HTML;
+Para utilizar medidas com base no tamanho da fonte DO NAVEGADOR ou ELEMENTO HTML se definido no mesmo: 1.25rem = 125%/1.25X do tamanho da ALTURA da fonte DO NAVEGADOR;
+Para utilizar medidas com base no tamanho da fonte DO ELEMENTO: 1.25em = 125%/1.25X do tamanho da ALTURA da fonte DO ELEMENTO;
+Para utilizar medidas com base no tamanho de cada caracter da fonte: 1ch = 1 charactere da fonte;
+Para modificar a referência do absolute: definir um posicionamento na tag pai, caso contrario ele se baseara automaticamente.
+Para utilizar uma barra de rolagem dentro de um elemento: overflow: scroll;
+Para criar bordas arrendodadas - border-radius: tamanho, tamanho;
+Como vários navegadores desenvolveram o uso de border radius, é necessário utilizar uma pré sintaxe antes de cada, sendo elas:
+	-webkit- para Chrome e Safari
+	-moz- para Firefox
+	-o- para Opera
+	-ms- Para IE
+	e também uma sem prefixo para que o site se torne Future Proof.
+
+;
+Para esconder uma barra de rolagem overflow-x: hidden;
+Para utilizar transform; transformação desejada;
+Para modificar o eixo da transformação; transform-origin: 0 0;
+Para rotacionar um elemento; transform: rotate(30deg);
+Para alterar a escala; transform: scale(1.5x);
+Para entortar; transform: skew(20deg);
+Para deslocar elementos; transform: translate(10px, 50px);
+Para projeções em 3D utilizar perspective que cria uma perspectiva de visão do usuário;
+Objetos em 3D possuem 3 eixos, X Y e Z;
+Para mover o eixo Z do elemento; translateZ(3px)
+Para preservar o formato 3D de uma cena ; transform-style: preserve-3d 
+
+Sintaxe do efeito de paralaxe --------
+body{
+    font-family: "Crimson Text", serif; /* Nomes de fontes sempre entre aspas. */
+    background-color: #F2FFFC;
+    line-height: 1.5;
+    perspective: 10px;
+}
+Definir a perspectiva no body
+Manter a cena em 3D
+.palavras-home, .tituloprincipal{
+    transform-style: preserve-3d
+
+ e depois aplicar os comandos no objeto que participa da cena
+.eficiencia {
+  position: absolute;
+  top: 40%;
+  right: 20%;
+  transform: translate(-50%, -50%) rotate(-5deg) translateZ(3px) scale(0.25);
+}
+
+Para adicionar sombra no texto text-shadow: posicao posicao blur cor ;
+E para colocar sobra em um elemento box-shadow: posicao posicao blur cor;
+exemplo de sombra interna e externa
+    box-shadow: 0 0 1em, inset 0 0 0.5em;
+
+Para alterar a opacidade opacity: de 0 a 1;
+Para alterar a opacidade de um plano de fundo: rgba(red green blue alpha(opacidade));
+Exemplo color: rgba(255, 127, 127, 0.5);
+
+
+Para simular uma borda utilizando box-shadow: div{
+  margin: 100px;
+  height: 50px;
+  width: 50px;
+  box-shadow: 0 0 0 4px black,
+    0 0 0 8px white,
+    0 0 0 12px black,
+    0 0 0 16px white,
+    0 0 0 20px black;
+};
+Para criar uma tela modal no centro da tela com o resto da tela sob uma sombra:
+    width: 40%;
+    background-color: #FFF;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    box-shadow: 0px 0px 0px 9999px rgba(0, 0, 0, 0.75);
+    padding: 10% 3%;
+    text-align: center;
+    font-size: 2em;
+Para criar um gradiente
+    background-image: linear-gradient(Para onde, cor1 posicao de muudar%, cor2 %, cor3 %);
+Para mudar o tamanho do background, background-size: tamanho;
+Para evitar a repetição de background, background-repeat: no-repeat;
+Para deixar um background como se estivesse fixo a tela, background-attachment: fixed;
+Para alterar a posição do background, background-position: 50% 50%;
+Sintaxe de um rodapé Eliptico com borda preta, 
+    background-image: radial-gradient(ellipse at left bottom,
+    rgba(60, 29, 61, 0.8),
+    rgba(60, 29, 61, 0.8) 65%,
+    black 65%,
+    black 70%,
+    transparent 70%,
+    transparent);
+    background-size: 25% 100%;
+    background-repeat: no-repeat;
+Sitaxe de um fundo listrado,  background-image: linear-gradient(135deg, 
+        transparent,
+        transparent 14px,
+        rgba(0, 0, 0, 0.1) 14px,
+        rgba(0, 0, 0, 0.1) 15px,
+        transparent 15px,
+        transparent);
+    background-size: 20px 20px;
+    background-attachment: fixed;
+Para selecionar todos os elementos depois de outro elemento especifico, elemento ~ elemento;
+Para selecionar apenas UM elemento depois de outro elemento, elemento + elemento;
+Para selecionar apenas elementos FILHOS de um segundo elemento, elementopai > elementofilho;
+
+Para selecao de itens pares e impares, ou especificos, :nth-child(odd)/(2n+1) <- impar, :nth-child(even)/(2n) <- par, :nth-child(numlinha);
+Para primeiro e ultimo, :first-child e :last-child;
+Porem :nth-child vale para todos os filhos de um elemento, para utilizar um especifico usa se outro,
+Para um elemento especifico, elemento:nth-of-type(odd/even);
+Para selecionar elementos que sejam filhos unicos: classe:nth-child(1):nth-last-child(1);
+    
+Pseudoclasses, classe:hover <- Mouse sobre elemento, classe:focus <- teclado focado sobre um elemento, classe:active <- elemento sendo clicado, classe:checked <- de formularios;
+
+Para esconder um elemento, display: none;
+Para selecionar apenas a primeira letra de um elemento, elemento::first-letter;
+Para selecionar o começo de um elemento e o final, elemento::before e elemento::after;
+    Eles possuem uma caracteristica especial chamado content, ex, blockquote:before {content: '"'}
+    exemplo:    
+        .citacao-bio::before{
+            line-height: 0.8;
+            content: '"';
+            font-size: 10em;
+            color: #bbb;
+            position: absolute;
+        }
+        .citacao-bio p{
+            position: relative;
+        }
+    Exemlo de uso cobinando pseudo-elementos para criar uma legenda bonita em um link:
+            .icones-redes-sociais a {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            display: block;
+            text-indent: -99999px;
+        }
+        .icones-redes-sociais a:hover::after,
+        .icones-redes-sociais a:focus::after{
+            content: attr(data-tooltip); /*Deve se definir na tag tooltip="valor da legenda"*/
+            position: absolute;
+            text-indent: 0;
+            top: 100%;
+            right: 0;
+            width: 300%;
+            font-size: 0.75em;
+            background-color: black;
+        }
+Para fazer contas no css
+    calc(100% - 270px);
+    
+Para criar animações que antes só eram possiveis com JS, transition: nomepropriedade(opcional) tempo(2s) suavizacao(linear), outrapropriedade tempo suavizacao(ease/ease-out/ease-in) ;
+Para modificar o tempo de inicio de cada transicao, transition-delay: tempotrans1(2s), tempotrans2(3s);
+Como transition só funciona com interações do usuario, para criar animações automaticas, 
+    -webkit-animation: nomeanimacao tempo inifite(para repetir infiniramente);
+    -moz-animation: nomeanimacao tempo;
+Depois é necessario identificar a animação através do uso do @, @-prefixo-keyframes(tipo da animaçao) nomeanimacao;
+    Sitaxe;
+    @-webkit-keyframes nomeanimacao{
+        0%{
+            o que acontece
+        } 
+        100%{
+            o que acontece
+        }
+    }
+Para fazer uma animação ciclar do começo ao fim e do fim ao começo, animation-direction: alternate;
+Para definir a suavizacao no começo, animation-timing-function: ease-in;
+    Para pausar quando o usuario selecionar, :hover{animation-play-state: paused;}
+    A especificação de animações define uma propriedade chamada animation-fill-mode. Essa propriedade nos permite fazer com que o navegador aplique o estilo inicial de uma animação antes mesmo de ela começar (valor backwards), mantenha o estilo final de uma animação mesmo após ela terminar de executar (valor forwards) ou ainda faça as duas coisas (valor both).
+
+Para controler os filhos de um elemento através do pai, utilzar, display: flex;
+Para alinhas os elementos internos verticalmente, align-items: center;
+Para dividir os espaçoes sobrando entre os elementos, justify-content: space-between;
+Para alterar o comportamento padrão do flex-box da horizontal pra vertical, flex-direction: column;
+Para cada filho possuir o mesmo taamanho, flex: 1;
+Para ordenar os elementos, order: numero;
+    
+    Exemplo de utilização do flex, 
+        body {
+        display: flex;
+        flex-wrap: wrap;
+        font-family: "Crimson Text", "Times New Roman", serif;
+        background-color: #F2FFFC;
+        font-size: 120%;
+        line-height: 1.5;
+        }
+        main {
+            flex-grow: 1;
+            justify-content: space-between;
+            padding-bottom: 4em;
+        }
+        .navegacao-site {
+            padding-top: calc(300px + 1em);
+        }
+
+Exemplo de criação de um formulario HTML:
+    Usar a ferramenta Typeform facilita muito esse serviço
+    
+    <form> 
+    Para agrupar os dados <fieldset>
+    <legend>Para descrição</legend>
+        <label for="id">Conteudo </label>
+        <input id="id" name="nomen que sera enviado ao servidor" value="valor enviado (em caso de Radio Button)" required para validação>
+    <input id="id" name="nome que sera enviado ao servidor" value="valor enviado (em caso de Radio Button)" required para validação autofocus <- para focar o teclado automaticamente>
+        <textarea id="id" rows="max Linhas" col="max colunas"> </textarea>
+    </fieldset>
+    </form>

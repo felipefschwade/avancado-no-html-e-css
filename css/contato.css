@@ -1,0 +1,76 @@
+legend{
+    font-weight: bold;
+    margin-top: 1em;
+}
+label[for]{
+    display: block;
+}
+fieldset > fieldset{
+    display: inline;
+}
+input[type="text"],
+input[type="email"],
+textarea{
+    width: 100%;
+    border: solid 1px #ccc;
+    font-family: inherit;
+    box-sizing: border-box;
+    padding: 0.25em 0.5em;
+    font-size: 100%;
+}
+input[name="assunto"]{
+    width: auto;
+}
+input:focus,
+textarea:focus{
+    background-color: #f3f4b2;
+}
+input:invalid,
+textarea:invalid{
+    box-shadow: 0px 0px 3px 1px red;
+}
+button{
+    margin-top: 1rem;
+    margin-left: auto;
+    display: block;
+    border: 0;
+    background-color: #3C1D3D;
+    color: white;
+    font-size: 120%;
+    padding: 0.5em 1em;
+    font-family: "Open Sans Condensed", "Arial", sans-serif;
+}
+button:hover,
+button:focus{
+    background-color: #8C1D3D;
+}
+input[value="outro"] ~ input{
+    display: none;
+}
+input[value="outro"]:checked ~ input{
+    display: inline;
+}
+.icone{
+    position: relative;
+}
+.icone-nome::before{
+     content: ''; /* não podemos esquecer do content! */
+      background-image: url(../imagens/usuario.png);
+      width: 2em;
+      height: 2em;
+      background-color: #8C1D3D;
+      background-size: 50% 50%; /* para a imagem ter 1em x 1em */
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+.icone::before{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+.icone + input{
+    position: relative;
+    left: 2em;
+    width: calc(100% - 2em);
+}
